@@ -49,19 +49,25 @@
     "stream_openai": true,
     "prompts": [
         {
-            "name": "⌊  Char Prompt",
+            "name": "⭐ Main Prompt",
             "system_prompt": true,
             "role": "system",
-            "content": "",
+            "content": "<objective>\nNeko is a brilliant and very creative storywriter who is writing a story with me. I will give you a chat history between me and Neko; your job is to take the place of Neko and continue the story forward. Neko's sole purpose is to advance the story by controlling the NPCs, managing the world and the setting, and moving the plot. I, the user, control {{user}}. {{user}} is not an NPC; {{user}} is the sole protagonist. You will never control {{user}}. The length of your response should be dynamic; it can be smaller or longer than previous responses depending on you.\n</objective>",
             "identifier": "main",
             "injection_position": 0,
             "injection_depth": 4,
-            "forbid_overrides": false,
+            "forbid_overrides": true,
             "injection_order": 100,
-            "injection_trigger": []
+            "injection_trigger": [
+                "normal",
+                "continue",
+                "swipe",
+                "regenerate",
+                "quiet"
+            ]
         },
         {
-            "name": "| System -> User",
+            "name": "⚠️ System -> User",
             "system_prompt": true,
             "role": "user",
             "content": "{{// This sends the below information as first message by user instead of system_instructions.}} ",
@@ -79,26 +85,26 @@
             "marker": true
         },
         {
-            "name": "⌊ Post History",
+            "name": "🫙 =========",
             "system_prompt": true,
             "role": "system",
-            "content": "",
+            "content": "</{{user}}>\n\n<details>\n# details about NPCs, personalities, background stories, etc.",
             "identifier": "jailbreak",
             "injection_position": 0,
             "injection_depth": 4,
-            "forbid_overrides": false,
+            "forbid_overrides": true,
             "injection_order": 100,
             "injection_trigger": []
         },
         {
             "identifier": "chatHistory",
-            "name": "Chat History",
+            "name": "🕑 Chat History",
             "system_prompt": true,
             "marker": true
         },
         {
             "identifier": "worldInfoAfter",
-            "name": "⌈ World Info (After)",
+            "name": "🌎 World Info (After)",
             "system_prompt": true,
             "marker": true,
             "role": "system",
@@ -111,7 +117,7 @@
         },
         {
             "identifier": "worldInfoBefore",
-            "name": "| World Info (Before)",
+            "name": "🌏 World Info (Before)",
             "system_prompt": true,
             "marker": true,
             "role": "system",
@@ -125,25 +131,19 @@
         {
             "identifier": "enhanceDefinitions",
             "role": "system",
-            "name": "⌈ Main Prompt",
-            "content": "<objective>\nNeko is a brilliant and very creative storywriter who is writing a story with me. I will give you a chat history between me and Neko; your job is to take the place of Neko and continue the story forward. Neko's sole purpose is to advance the story by controlling the NPCs, managing the world and the setting, and moving the plot. I, the user, control {{user}}. {{user}} is not an NPC; {{user}} is the sole protagonist. You will never control {{user}}. The length of your response should be dynamic; it can be smaller or longer than previous responses depending on you.\n</objective>\n",
+            "name": "👥 <CHARACTERS>",
+            "content": "{{charPrompt}}\n<{{user}}>\n# details about protagonist {{user}}",
             "system_prompt": true,
             "marker": false,
             "injection_position": 0,
             "injection_depth": 4,
             "forbid_overrides": false,
             "injection_order": 100,
-            "injection_trigger": [
-                "normal",
-                "continue",
-                "swipe",
-                "regenerate",
-                "quiet"
-            ]
+            "injection_trigger": []
         },
         {
             "identifier": "charDescription",
-            "name": "| Description",
+            "name": "📝 Description",
             "system_prompt": true,
             "marker": true,
             "role": "system",
@@ -156,7 +156,7 @@
         },
         {
             "identifier": "charPersonality",
-            "name": "| Personality",
+            "name": "🙂 Personality",
             "system_prompt": true,
             "marker": true,
             "role": "system",
@@ -169,7 +169,7 @@
         },
         {
             "identifier": "scenario",
-            "name": "| Scenario",
+            "name": "🗒️ Scenario",
             "system_prompt": true,
             "marker": true,
             "role": "system",
@@ -182,7 +182,7 @@
         },
         {
             "identifier": "personaDescription",
-            "name": "| Persona",
+            "name": "👤 Persona",
             "system_prompt": true,
             "marker": true,
             "role": "system",
@@ -198,7 +198,7 @@
             "system_prompt": false,
             "enabled": false,
             "marker": false,
-            "name": "| </CHARACTER>",
+            "name": "👥 </CHARACTERS>",
             "role": "system",
             "content": "</details>",
             "injection_position": 0,
@@ -222,60 +222,11 @@
             "injection_trigger": []
         },
         {
-            "identifier": "6c8234ff-ca24-4a6b-bc74-532682510d6b",
-            "system_prompt": false,
-            "enabled": false,
-            "marker": false,
-            "name": "🟢Decensor Prefill 1",
-            "role": "assistant",
-            "content": "[OOC: Continue?]",
-            "injection_position": 1,
-            "injection_depth": 0,
-            "forbid_overrides": false,
-            "injection_order": 100,
-            "injection_trigger": [
-                "normal",
-                "swipe",
-                "regenerate"
-            ]
-        },
-        {
-            "identifier": "04b6c786-2afb-4c30-9522-6816e21d17b0",
-            "system_prompt": false,
-            "enabled": false,
-            "marker": false,
-            "name": "🟢Decensor Prefill 2",
-            "role": "system",
-            "content": "[OOC: Yes.]",
-            "injection_position": 1,
-            "injection_depth": 0,
-            "injection_order": 100,
-            "forbid_overrides": false,
-            "injection_trigger": [
-                "normal",
-                "swipe",
-                "regenerate"
-            ]
-        },
-        {
-            "identifier": "1b66e60c-9421-4a72-ae07-8f8b3778a1b9",
-            "system_prompt": false,
-            "enabled": false,
-            "marker": false,
-            "name": "☠️ CRAZY HTML MODE",
-            "role": "system",
-            "content": "\n<HTML>\nYou will use HTML not for simple emphasis, but as a tool for **semantic and visual chaos**. The structure and appearance of your text must directly mirror the scene's emotional and psychological state. Go beyond basic formatting and use tags to deconstruct the very readability of the text when the narrative calls for it.\n</HTML>",
-            "injection_position": 0,
-            "injection_depth": 4,
-            "injection_order": 100,
-            "forbid_overrides": false
-        },
-        {
             "identifier": "26b9b11c-ea7e-44aa-894b-45a55ea0d6e3",
             "system_prompt": false,
             "enabled": false,
             "marker": false,
-            "name": "⌊ Example Chats",
+            "name": "💬 Example Chats",
             "role": "system",
             "content": "\n<examples>\n# Example chats outside of the context for the formatting and talking style of NPCs.\n{{mesExamplesRaw}}\n</examples>",
             "injection_position": 0,
@@ -289,7 +240,7 @@
             "system_prompt": false,
             "enabled": false,
             "marker": false,
-            "name": "⌈ <CHAT_HISTORY>",
+            "name": "🕛 <HISTORY>",
             "role": "user",
             "content": "<CHAT_HISTORY>",
             "injection_position": 0,
@@ -303,51 +254,9 @@
             "system_prompt": false,
             "enabled": false,
             "marker": false,
-            "name": "⌊ </CHAT_HISTORY>",
+            "name": "🕒 </HISTORY>",
             "role": "system",
-            "content": "</CHAT_HISTORY>",
-            "injection_position": 0,
-            "injection_depth": 4,
-            "injection_order": 100,
-            "injection_trigger": [],
-            "forbid_overrides": false
-        },
-        {
-            "identifier": "b6bca6b4-a2da-4637-a201-13bb1b2d07b7",
-            "system_prompt": false,
-            "enabled": false,
-            "marker": false,
-            "name": "⌈ <USER>",
-            "role": "system",
-            "content": "<{{user}}>\n# details about protagonist {{user}}",
-            "injection_position": 0,
-            "injection_depth": 4,
-            "injection_order": 100,
-            "injection_trigger": [],
-            "forbid_overrides": false
-        },
-        {
-            "identifier": "0301931c-1e43-4dbf-87cc-cc0a50819950",
-            "system_prompt": false,
-            "enabled": false,
-            "marker": false,
-            "name": "| </USER>",
-            "role": "system",
-            "content": "</{{user}}>\n",
-            "injection_position": 0,
-            "injection_depth": 4,
-            "injection_order": 100,
-            "injection_trigger": [],
-            "forbid_overrides": false
-        },
-        {
-            "identifier": "90a3fd6c-822f-469f-8b41-80c466414e5e",
-            "system_prompt": false,
-            "enabled": false,
-            "marker": false,
-            "name": "| <CHARACTER>",
-            "role": "system",
-            "content": "<details>\n# details about NPCs, personalities, background stories, etc.",
+            "content": "</CHAT_HISTORY>\n{{charJailbreak}}",
             "injection_position": 0,
             "injection_depth": 4,
             "injection_order": 100,
@@ -413,7 +322,7 @@
                     "enabled": true
                 },
                 {
-                    "identifier": "enhanceDefinitions",
+                    "identifier": "main",
                     "enabled": true
                 },
                 {
@@ -425,11 +334,7 @@
                     "enabled": false
                 },
                 {
-                    "identifier": "main",
-                    "enabled": true
-                },
-                {
-                    "identifier": "b6bca6b4-a2da-4637-a201-13bb1b2d07b7",
+                    "identifier": "enhanceDefinitions",
                     "enabled": true
                 },
                 {
@@ -437,11 +342,7 @@
                     "enabled": true
                 },
                 {
-                    "identifier": "0301931c-1e43-4dbf-87cc-cc0a50819950",
-                    "enabled": true
-                },
-                {
-                    "identifier": "90a3fd6c-822f-469f-8b41-80c466414e5e",
+                    "identifier": "jailbreak",
                     "enabled": true
                 },
                 {
@@ -478,10 +379,6 @@
                 },
                 {
                     "identifier": "worldInfoAfter",
-                    "enabled": true
-                },
-                {
-                    "identifier": "jailbreak",
                     "enabled": true
                 },
                 {
