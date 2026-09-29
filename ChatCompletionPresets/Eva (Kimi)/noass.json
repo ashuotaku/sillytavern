@@ -1,0 +1,162 @@
+{
+    "name": "Eva",
+    "enable_lastlines_cropping": false,
+    "enable_stop_string": true,
+    "stop_strings": [
+        {
+            "value": "**User:**",
+            "client": false,
+            "regex": false
+        },
+        {
+            "value": "",
+            "client": false,
+            "regex": false
+        },
+        {
+            "value": "",
+            "client": false,
+            "regex": false
+        },
+        {
+            "value": "",
+            "client": false,
+            "regex": false
+        },
+        {
+            "value": "",
+            "client": false,
+            "regex": false
+        },
+        {
+            "value": "",
+            "client": false,
+            "regex": false
+        },
+        {
+            "value": "",
+            "client": false,
+            "regex": false
+        },
+        {
+            "value": "",
+            "client": false,
+            "regex": false
+        },
+        {
+            "value": "",
+            "client": false,
+            "regex": false
+        },
+        {
+            "value": "",
+            "client": false,
+            "regex": false
+        }
+    ],
+    "stop_string_selection": 0,
+    "active_stop_strings": [
+        0
+    ],
+    "max_symbols": 999999,
+    "messages_separator": "double_newline",
+    "user_prefix": "**User:** ",
+    "user_suffix": "",
+    "char_prefix": "**Eva:** ",
+    "char_suffix": "",
+    "zero_prefill": "",
+    "enable_zero_prefill": false,
+    "separate_chat_history": false,
+    "squash_role": "user",
+    "squashed_separator_selection": 0,
+    "squashed_separators": [
+        {
+            "enable": true,
+            "string": "",
+            "keep": false,
+            "regex": false,
+            "prompt_enable": false,
+            "prompt_role": "user",
+            "prompt_string": "→"
+        },
+        {
+            "enable": false,
+            "string": "",
+            "keep": false,
+            "regex": false,
+            "prompt_enable": false,
+            "prompt_role": "user",
+            "prompt_string": "→"
+        },
+        {
+            "enable": false,
+            "string": "",
+            "keep": false,
+            "regex": false,
+            "prompt_enable": false,
+            "prompt_role": "user",
+            "prompt_string": "→"
+        }
+    ],
+    "active_squashed_separators": [
+        0
+    ],
+    "cropping_selection": 0,
+    "active_croppings": [
+        0
+    ],
+    "croppings": [
+        {
+            "enable": true,
+            "string": "",
+            "keep": false,
+            "regex": false
+        },
+        {
+            "enable": false,
+            "string": "",
+            "keep": false,
+            "regex": false
+        },
+        {
+            "enable": false,
+            "string": "",
+            "keep": false,
+            "regex": false
+        }
+    ],
+    "rearranger_selection": 0,
+    "active_rearrangers": [
+        0
+    ],
+    "rearrangers": [
+        {
+            "enable": true,
+            "search_string": "",
+            "search_regex": false,
+            "replace_string": "",
+            "replace_regex": false,
+            "insert_position": "after",
+            "keep_original": false
+        },
+        {
+            "enable": false,
+            "search_string": "",
+            "search_regex": false,
+            "replace_string": "",
+            "replace_regex": false,
+            "insert_position": "after",
+            "keep_original": false
+        },
+        {
+            "enable": false,
+            "search_string": "",
+            "search_regex": false,
+            "replace_string": "",
+            "replace_regex": false,
+            "insert_position": "after",
+            "keep_original": false
+        }
+    ],
+    "enable_lastlines_history_cropping": false
+}

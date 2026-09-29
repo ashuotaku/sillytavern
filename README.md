@@ -8,7 +8,8 @@ For more info and help, feel free to contact me at my [reddit](https://www.reddi
 > To use presets like Eva and Neko, which come with [noass](https://gitgud.io/Monblant/noass) settings, please install the [noass](https://gitgud.io/Monblant/noass) extension in your sillytavern, then only it will work and after installing the extension import the settings of noass extenstion into it.
 
 ## All presets:
-- [Eva](<ChatCompletionPresets/Eva (Deepseek)/>) - Especially for Deepseek v4 Flash and Pro, and Deepseek v3.2
+- [Kimi-Eva](<ChatCompletionPresets/Eva (Kimi)/>) - Especially for Kimi K2 and Kimi K3
+- [Deepseek-Eva](<ChatCompletionPresets/Eva (Deepseek)/>) - Especially for Deepseek v4 Flash and Pro, and Deepseek v3.2
 ### Old:
 - [Neko](<ChatCompletionPresets/Neko (Gemini)/>) - Especially for Gemini 3+ Pro and Flash
 - [Gemini](ChatCompletionPresets/Gemini/) - Outdated
